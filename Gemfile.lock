@@ -1,14 +1,19 @@
+GIT
+  remote: git://github.com/cbrunsdon/ruby-nmap.git
+  revision: 85a668d1b520269dc7e508916837e2f6292b8414
+  specs:
+    ruby-nmap (0.4.0)
+      nokogiri (>= 1.3.0)
+      rprogram (~> 0.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
     nokogiri (1.4.4)
     rprogram (0.2.1)
-    ruby-nmap (0.4.0)
-      nokogiri (>= 1.3.0)
-      rprogram (~> 0.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  ruby-nmap
+  ruby-nmap!
