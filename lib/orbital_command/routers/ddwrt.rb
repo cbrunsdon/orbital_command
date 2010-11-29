@@ -1,6 +1,6 @@
 gem 'mechanize'
 require 'mechanize'
-require 'rexml/document'
+require 'nokogiri'
 
 module OrbitalCommand
 		module Routers

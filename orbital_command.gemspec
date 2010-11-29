@@ -15,6 +15,7 @@ spec = Gem::Specification.new do |s|
 
 		s.add_dependency('ifestor')
 		s.add_dependency('nokogiri')
+		s.add_dependency('mechanize')
 		s.add_dependency('ruby-nmap')
 		s.add_dependency('ruby-graphviz')
 
