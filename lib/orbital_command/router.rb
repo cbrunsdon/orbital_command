@@ -26,5 +26,13 @@ module OrbitalCommand
 				def host_attached? host
 						false #expected to be overridden by children
 				end
+
+				def header_color 
+						"green"
+				end
+
+				def header_size 
+						20
+				end
 		end
 end

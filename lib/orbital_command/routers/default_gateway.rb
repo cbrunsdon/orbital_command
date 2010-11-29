@@ -12,6 +12,10 @@ module OrbitalCommand
 						def host_attached? host
 								hosts.include? host
 						end
+
+						def header_color
+								return "red"
+						end
 				end
 		end
 end
