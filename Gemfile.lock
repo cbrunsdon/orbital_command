@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/cbrunsdon/ifestor.git
+  revision: 542fce3cb5db9b64922dd2019752fdef3a8e956d
+  specs:
+    ifestor (0.1)
+
+GIT
   remote: git://github.com/cbrunsdon/ruby-nmap.git
   revision: 85a668d1b520269dc7e508916837e2f6292b8414
   specs:
@@ -9,11 +15,19 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    macaddr (1.0.0)
+    mechanize (1.0.0)
+      nokogiri (>= 1.2.1)
     nokogiri (1.4.4)
     rprogram (0.2.1)
+    ruby-graphviz (0.9.20)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  ifestor!
+  macaddr
+  mechanize
+  ruby-graphviz
   ruby-nmap!

@@ -1,2 +1,8 @@
 require 'orbital_command/host'
 require 'orbital_command/scan'
+require 'orbital_command/router'
+require 'orbital_command/routers/dlink'
+require 'orbital_command/routers/ddwrt'
+require 'orbital_command/routers/default_gateway'
+require 'orbital_command/config'
+require 'orbital_command/graphviz_printer'

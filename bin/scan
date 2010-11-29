@@ -1,0 +1,34 @@
+#!/usr/bin/ruby
+require "rubygems"
+require 'bundler/setup'
+require 'nmap/program'
+require 'nmap/xml'
+require 'orbital_command'
+require 'ifestor'
+
+require 'optparse'
+require 'ostruct'
+
+config = OrbitalCommand::Config.new
+OptionParser.new do |opts|
+		opts.banner = "Usage: run_scan.rb [options]"
+		opts.on("-c", "--config [config_file]", "A OrbitalCommand config file, if it exists") do |ext|
+				if !File.exists?(ext)
+						puts "Specified config file does not exist"
+						exit
+				end
+				config.load_yaml_file ext
+		end
+		opts.on("-f", "--scanfile [scan_file]", "The name of the xml scan file to load/create") do |ext|
+				config.scan_file = ext
+		end
+
+		opts.on("-o", "--output_image [image_file]", "The name of the png file to create with the visualization") do |ext|
+				config.image_file = ext
+		end
+
+end.parse!
+
+scan = OrbitalCommand::Scan.new config
+
+scan.print_graph

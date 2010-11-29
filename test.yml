@@ -1,0 +1,10 @@
+routers:
+- name: dlink
+  ip: 0.0.0.0
+  type: dlink
+  password: 9100d9448fdb0ba7c0bef47ff3cad691f3e9cc0d
+- name: linksys
+  ip: 127.0.0.1
+  type: ddwrt
+  password: sups
+  username: pups

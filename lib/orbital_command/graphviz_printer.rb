@@ -1,19 +1,26 @@
 require 'rubygems'
 require 'graphviz'
 
-
 module OrbitalCommand
   class GraphVizPrinter
     def initialize
       @g = GraphViz::new(:G, :type => :graph, :rankdir => "LR")
     end
+		def import_host host
+				self.add_host(:hostname => host.hostname, :ip => host.ip, :mac => host.mac, :os => host.os_name)
+		end
     def add_host options
       name = options[:hostname] || options[:ip]
       data = []
       data << options.delete(:ip)
       data << ("ports: " << options.delete(:ports).join(', ')) if options[:ports]
       data << options.delete(:mac)
-      data << options.delete(:os)
+			os = options.delete(:os)
+			# split up OS on to two lines if its Long
+			if os.length > 30
+					os.insert((os.index(";") || os.index("(") || os.index(" ", 20)), "<br />")
+			end
+      data << os
       data.compact!
       s = '<<table cellpadding="0" cellspacing="0">'
 
@@ -30,7 +37,7 @@ module OrbitalCommand
       @g.add_edge(s, t)
     end
     def output filename
-      @g.output(:png => filename, :use => 'fdp')
+      @g.output(:png => filename, :use => 'circo')
     end
   end
 end

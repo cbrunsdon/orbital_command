@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wifi_assoc>
+		<radio>
+				<assoc>
+						<mac>001CB3B58092</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>104</rate>
+						<quality>60</quality>
+						<type>802.11n (2.4GHz)</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+				<assoc>
+						<mac>0024D704F150</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>18</rate>
+						<quality>36</quality>
+						<type>802.11g</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+				<assoc>
+						<mac>002100555E85</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>13</rate>
+						<quality>40</quality>
+						<type>802.11n (2.4GHz)</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+				<assoc>
+						<mac>38E7D8DBBE53</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>2</rate>
+						<quality>32</quality>
+						<type>802.11g</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+				<assoc>
+						<mac>00216B98F87A</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>24</rate>
+						<quality>70</quality>
+						<type>802.11g</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+				<assoc>
+						<mac>002314AC6714</mac>
+						<ssid>Janus</ssid>
+						<channel>1</channel>
+						<rate>18</rate>
+						<quality>52</quality>
+						<type>802.11g</type>
+						<ip_address>0.0.0.0</ip_address>
+				</assoc>
+		</radio>
+</wifi_assoc>
