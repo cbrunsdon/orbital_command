@@ -8,7 +8,7 @@ module OrbitalCommand
 				end
 
 				def load_yaml_file file
-					config_file = YAML.parse_file(ext)
+					config_file = YAML.parse_file(file)
 					self.routers = config_file['routers'].value.collect do |x|
 							values = {}
 							x.value.each { |x,y| values[x.value.to_sym] = y.value.to_s }

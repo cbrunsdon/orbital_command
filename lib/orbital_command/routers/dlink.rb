@@ -1,28 +1,43 @@
 gem 'mechanize'
 require 'mechanize'
 require 'rexml/document'
+require 'digest/md5'
+require 'nokogiri'
 
 module OrbitalCommand
 		module Routers
 				class Dlink < OrbitalCommand::Router
-						def initialize(router, nmap_host)
-								super(router, nmap_host)
+						def initialize(nmap_host, router)
+								super(nmap_host, router)
 
 								agent = Mechanize.new
 
 								@nodes = []
 
 								router_path = "http://#{router[:ip]}"
-								login_path = "#{router_path}/post_login.xml?hash=#{router[:password]}"
+								x = agent.get(router_path)
+								salt = x.body.match(/salt = "(.*)"/)[1]
+
+								# pad the pasword to length 16
+								pad_size = (16 - router[:password].length)
+								padded_password = router[:password] + "\x01" * pad_size
+
+								# pad it the rest of the way, length 64 for admin
+								salted_password = salt + padded_password + ("\x01" * (64 - salt.length - padded_password.length))
+								login_hash = salt + Digest::MD5.hexdigest(salted_password)
+
+								login_path = "#{router_path}/post_login.xml?hash=#{login_hash}"
+
 								x = agent.get(login_path)
 								clients_xml = agent.get("#{router_path}/wifi_assoc.xml").body
-								wifi_clients = REXML::Document.new(clients_xml)
-								wifi_clients.elements.each('//assoc') do |assoc|
-										@nodes.push( { :channel => assoc.elements['channel'][0],
-															 :mac => assoc.elements['mac'][0],
-															 :ip => assoc.elements['ip_address'][0],
-															 :quality => assoc.elements['quality'][0],
-															 :rate => assoc.elements['rate'][0] } )
+								doc = Nokogiri::XML(clients_xml.to_s)
+								doc.xpath('//assoc').each do |assoc|
+										children = assoc.children
+										@nodes.push( { :channel => children.search('channel')[0].text,
+															 :mac => children.search('mac')[0].text,
+															 :ip => children.search('ip_address')[0].text,
+															 :quality => children.search('quality')[0].text,
+															 :rate => children.search('rate')[0].text } )
 								end
 
 						end

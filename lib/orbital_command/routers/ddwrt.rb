@@ -5,8 +5,8 @@ require 'rexml/document'
 module OrbitalCommand
 		module Routers
 				class DDWrt < OrbitalCommand::Router
-						def initialize(router, nmap_host)
-								super(router, nmap_host)
+						def initialize(nmap_host, router)
+								super(nmap_host, router)
 
 								agent = Mechanize.new
 								agent.basic_auth(router[:username], router[:password])
