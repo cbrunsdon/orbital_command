@@ -16,7 +16,7 @@ spec = Gem::Specification.new do |s|
 		s.add_dependency('ifestor')
 		s.add_dependency('nokogiri')
 		s.add_dependency('ruby-nmap')
-		s.add_dependency('graphviz')
+		s.add_dependency('ruby-graphviz')
 
 		s.files = ["lib/orbital_command.rb", "lib/orbital_command/*.rb", "README.md", "LICENSE.txt"]
 
