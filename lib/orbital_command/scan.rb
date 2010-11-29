@@ -1,3 +1,7 @@
+require 'nmap/program'
+require 'nmap/xml'
+require 'ifestor'
+
 module OrbitalCommand
 		class Scan
 				def initialize config
