@@ -59,6 +59,7 @@ module OrbitalCommand
 								nmap.service_scan = true
 								nmap.os_fingerprint = true
 								nmap.xml = @config.scan_file
+								nmap.enable_dns = true
 								nmap.verbose = false #nmap.verbose = true
 								#nmap.traceroute = true
 

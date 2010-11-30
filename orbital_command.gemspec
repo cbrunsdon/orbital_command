@@ -2,7 +2,7 @@ require 'rake'
 
 spec = Gem::Specification.new do |s|
 		s.name = 'orbital_command'
-		s.version = '0.1.3'
+		s.version = '0.1.4'
 		s.summary = "Scan's the network using sophsec's ruby-nmap and prints our a graph using graphviz"
 		s.author = "Clarke Brunsdon"
 		s.email = "clarke@freerunningtechnologies.com"
