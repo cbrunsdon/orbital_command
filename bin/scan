@@ -16,12 +16,21 @@ OptionParser.new do |opts|
 				end
 				config.load_yaml_file ext
 		end
+
 		opts.on("-f", "--scanfile [scan_file]", "The name of the xml scan file to load/create") do |ext|
 				config.scan_file = ext
 		end
 
 		opts.on("-o", "--output_image [image_file]", "The name of the png file to create with the visualization") do |ext|
 				config.image_file = ext
+		end
+
+		opts.on("-f", "--scanfile [scan_file]", "The name of the xml scan file to load/create") do |ext|
+				config.scan_file = ext
+		end
+
+		opts.on("-d", "--default-gateway [default_gateway_ip]", "The IP address of the default gateway") do |ext|
+				config.default_gateway = ext
 		end
 
 end.parse!

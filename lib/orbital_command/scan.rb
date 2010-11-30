@@ -103,7 +103,7 @@ module OrbitalCommand
 				end
 
 				def default_gateway_ip
-						@gateway_ip ||= (`route -n`.split("\n").last.match /\s[\d\.]+/)[0].strip
+						@gateway_ip ||= @config.default_gateway || (`route -n`.split("\n").last.match /\s[\d\.]+/)[0].strip
 				end
 
 				def default_gateway 
